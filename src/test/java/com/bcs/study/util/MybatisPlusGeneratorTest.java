@@ -55,7 +55,7 @@ public class MybatisPlusGeneratorTest {
                 //包配置
                 .packageConfig(builder -> {
                     builder.parent("com.bcs.study.module.admin")     //父包名
-                            .entity("domain")                 //Entity 包名
+                            .entity("bean")                 //Entity 包名
                             .service("service")             //	Service 包名
                             .serviceImpl("service.impl")    //Service Impl 包名
                             .mapper("mapper")               //Mapper 包名

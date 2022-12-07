@@ -1,5 +1,8 @@
 server:
   port: 8100
+mybatis-plus:
+#  type-aliases-package: com.bcs.study.module.*.bean
+  mapper-locations: classpath:/mapper/*.xml
 spring:
   datasource:
     url: jdbc:mysql://localhost:3306/study?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai

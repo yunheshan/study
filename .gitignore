@@ -2,6 +2,7 @@ HELP.md
 mvnw
 mvnw.cmd
 .mvn
+rebel.xml
 target/
 !**/src/main/**/target/
 !**/src/test/**/target/
