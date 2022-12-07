@@ -4,7 +4,9 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.generator.FastAutoGenerator;
 import com.baomidou.mybatisplus.generator.config.OutputFile;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,18 +18,20 @@ import java.util.List;
  * @Version 1.0
  * @Desc
  */
-public class MybatisPlusGenerator {
+@SpringBootTest
+public class MybatisPlusGeneratorTest {
 
     @Value("${spring.datasource.url}")
-    private static String url;
+    private  String url;
 
     @Value("${spring.datasource.username}")
-    private static String username;
+    private  String username;
 
     @Value("${spring.datasource.password}")
-    private static String password;
+    private  String password;
 
-    public static void main(String[] args) {
+    @Test
+    public void generate() {
 //        String url = "jdbc:mysql://localhost:3306/study?useUnicode=true&useSSL=false&characterEncoding=utf8";
 //        String username = "root";
 //        String password = "root";
@@ -50,8 +54,8 @@ public class MybatisPlusGenerator {
                 })
                 //包配置
                 .packageConfig(builder -> {
-                    builder.parent("com.bcs.study")     //父包名
-                            .entity("bean")                 //Entity 包名
+                    builder.parent("com.bcs.study.module.admin")     //父包名
+                            .entity("domain")                 //Entity 包名
                             .service("service")             //	Service 包名
                             .serviceImpl("service.impl")    //Service Impl 包名
                             .mapper("mapper")               //Mapper 包名
@@ -61,25 +65,23 @@ public class MybatisPlusGenerator {
                             .pathInfo(Collections.singletonMap(OutputFile.xml, System.getProperty("user.dir") + "\\src\\main\\resources\\mapper"));//指定xml位置
                 })
                 //策略配置
-                .strategyConfig(builder -> {
-                    builder.addInclude(tables)
-                            .addTablePrefix("t_")//表名前缀，配置后生成的代码不会有此前缀
-                            .serviceBuilder()
-                            .formatServiceFileName("%sService")//服务层接口名后缀
-                            .formatServiceImplFileName("%sServiceImpl")//服务层实现类名后缀
-                            .entityBuilder()
-                            .enableLombok()//实体类使用lombok,需要自己引入依赖
-                            //.logicDeleteColumnName("status")//逻辑删除字段，使用delete方法删除数据时会将status设置为1。调用update方法时并不会将该字段放入修改字段中，而是在条件字段中
-                            .enableTableFieldAnnotation()//加上字段注解@TableField
-                            .controllerBuilder()
-                            .formatFileName("%sController")//控制类名称后缀
-                            .enableRestStyle()
-                            .mapperBuilder()
-                            .superClass(BaseMapper.class)
-                            .formatMapperFileName("%sMapper")
-                            .enableMapperAnnotation()
-                            .formatXmlFileName("%sMapper");
-                })
+                .strategyConfig(builder -> builder.addInclude(tables)
+                        .addTablePrefix("t_")//表名前缀，配置后生成的代码不会有此前缀
+                        .serviceBuilder()
+                        .formatServiceFileName("%sService")//服务层接口名后缀
+                        .formatServiceImplFileName("%sServiceImpl")//服务层实现类名后缀
+                        .entityBuilder()
+                        .enableLombok()//实体类使用lombok,需要自己引入依赖
+                        //.logicDeleteColumnName("status")//逻辑删除字段，使用delete方法删除数据时会将status设置为1。调用update方法时并不会将该字段放入修改字段中，而是在条件字段中
+                        .enableTableFieldAnnotation()//加上字段注解@TableField
+                        .controllerBuilder()
+                        .formatFileName("%sController")//控制类名称后缀
+                        .enableRestStyle()
+                        .mapperBuilder()
+                        .superClass(BaseMapper.class)
+                        .formatMapperFileName("%sMapper")
+                        .enableMapperAnnotation()
+                        .formatXmlFileName("%sMapper"))
                 .execute();
 
 
