@@ -4,14 +4,13 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.*;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.*;
 
 /**
  * <p>
@@ -22,36 +21,22 @@ import lombok.*;
  * @since 2022-12-07
  */
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@TableName("t_admin")
-public class Admin implements Serializable {
+@Schema(title = "管理员DTO对象",description = "管理实体描述")
+public class AdminDTO {
 
-    @Serial
-    private static final long serialVersionUID = 1L;
-
-    @TableId(value = "id",type = IdType.ASSIGN_ID)
-    private Long id;
-
-    @TableField("name")
+    @Schema(title = "管理员用户名标题",description = "用户名描述")
     private String name;
 
-    @TableField("password")
     private String password;
 
-    @TableField("amount")
     private BigDecimal amount;
 
-    @TableField("status")
     private Integer status;
 
-    @TableField("create_time")
     private LocalDateTime createTime;
 
-    @TableField("update_time")
     private LocalDateTime updateTime;
 
-    @TableField("is_delete")
     private Integer isDelete;
 
 

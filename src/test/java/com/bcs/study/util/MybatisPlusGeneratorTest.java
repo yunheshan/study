@@ -32,14 +32,9 @@ public class MybatisPlusGeneratorTest {
 
     @Test
     public void generate() {
-//        String url = "jdbc:mysql://localhost:3306/study?useUnicode=true&useSSL=false&characterEncoding=utf8";
-//        String username = "root";
-//        String password = "root";
-
-
         //表名集合
         List<String> tables = new ArrayList<>();
-        tables.add("t_admin");
+        tables.add("t_user");
 
         FastAutoGenerator.create(url, username, password)
                 //全局配置
@@ -48,13 +43,13 @@ public class MybatisPlusGeneratorTest {
                             .disableOpenDir()  //禁止打开输出目录
                             .outputDir(System.getProperty("user.dir") + "\\src\\main\\java")   //指定输出目录
                             .author("bcs")   //作者名
-                            .enableSwagger()     //开启 swagger 模式
+                            .enableSpringdoc()     //开启 springdoc 模式
                             .dateType(DateType.TIME_PACK)   //时间策略
                             .commentDate("yyyy-MM-dd");   //注释日期
                 })
                 //包配置
                 .packageConfig(builder -> {
-                    builder.parent("com.bcs.study.module.admin")     //父包名
+                    builder.parent("com.bcs.study.module.user")     //父包名
                             .entity("bean")                 //Entity 包名
                             .service("service")             //	Service 包名
                             .serviceImpl("service.impl")    //Service Impl 包名
