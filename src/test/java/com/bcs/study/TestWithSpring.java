@@ -1,12 +1,20 @@
 package com.bcs.study;
 
+import com.bcs.study.module.other.generator.mapper.GeneratorMapper;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
-@SpringBootTest
-class TestWithSpring {
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = StudyApplication.class,webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+public class TestWithSpring {
+
+    @Autowired
+    private GeneratorMapper generatorMapper;
 
     @BeforeAll
     static void before(){
@@ -19,7 +27,9 @@ class TestWithSpring {
     }
 
     @Test
-    void test() {
+    public void test() {
+        System.out.println(generatorMapper.selectDesc("t_admin"));
+        generatorMapper.selectColumns("t_admin").forEach(System.out::println);
     }
 
 }

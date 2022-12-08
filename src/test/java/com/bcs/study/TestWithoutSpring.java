@@ -1,6 +1,8 @@
 package com.bcs.study;
 
+import com.bcs.study.module.other.generator.mapper.GeneratorMapper;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * @Author bcs
