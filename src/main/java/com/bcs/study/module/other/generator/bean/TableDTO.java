@@ -21,6 +21,8 @@ public class TableDTO {
 
     private String tableName;
 
+    private String className;
+
     private String tableComment;
 
     private List<ColumnDTO> columns;

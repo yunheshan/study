@@ -21,6 +21,10 @@ public class ColumnDTO {
 
     private String columnType;
 
+    private String filedType;
+
+    private String filedName;
+
     private String columnComment;
 
     private String columnDefault;

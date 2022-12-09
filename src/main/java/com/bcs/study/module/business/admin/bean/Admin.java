@@ -5,12 +5,10 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
-import java.io.Serial;
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.bcs.study.common.bean.BaseEntity;
 import lombok.*;
 
 /**
@@ -24,11 +22,9 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @TableName("t_admin")
-public class Admin implements Serializable {
-
-    @Serial
-    private static final long serialVersionUID = 1L;
+public class Admin extends BaseEntity {
 
     @TableId(value = "id",type = IdType.ASSIGN_ID)
     private Long id;
