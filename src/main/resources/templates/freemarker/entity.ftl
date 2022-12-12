@@ -3,8 +3,9 @@ package com.bcs.study.module.${baseInfo.packageName}.bean;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
+<#list imports as import1>
+import1
+</#list>
 
 import com.bcs.study.common.bean.BaseEntity;
 import lombok.*;
