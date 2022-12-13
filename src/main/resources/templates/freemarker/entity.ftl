@@ -3,8 +3,8 @@ package com.bcs.study.module.${baseInfo.packageName}.bean;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 
-<#list imports as import1>
-import1
+<#list imports as import>
+${import}
 </#list>
 
 import com.bcs.study.common.bean.BaseEntity;
@@ -25,7 +25,7 @@ import lombok.*;
 public class ${className} extends BaseEntity{
 
 <#list columns as column>
-    <#if column.columnName!= 'id' && column.columnName!= 'create_time' && column.columnName!= 'update_time' >
+    <#if column.columnName!= 'id' && column.columnName!= 'create_time' && column.columnName!= 'update_time' && column.columnName!= 'is_delete'>
         /**
         * ${column.columnComment}
         */

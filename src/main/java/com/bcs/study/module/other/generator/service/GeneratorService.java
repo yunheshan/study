@@ -50,7 +50,7 @@ public class GeneratorService {
                     }
                     String className = classNameSb.toString() + "Entity";
                     List<ColumnDTO> columns = generatorMapper.selectColumns(tableName);
-                    List<String> imports = new ArrayList<>();
+                    Set<String> imports = new HashSet<>();
                     List<ColumnDTO> fullColumns = columns.stream()
                             .map(columnDTO -> {
                                 String columnType = columnDTO.getColumnType();
@@ -63,12 +63,14 @@ public class GeneratorService {
                                     }
                                 }
                                 columnDTO.setFiledType(javaType);
-                                if (!imports.contains("import java.math.BigDecimal;" ) && "BigDecimal".equals(javaType)) {
-                                    imports.add("import java.math.BigDecimal;" );
-                                } else if (!imports.contains("import java.time.LocalDateTime;" ) && "LocalDateTime".equals(javaType)) {
-                                    imports.add("import java.time.LocalDateTime;" );
-                                }
                                 String columnName = columnDTO.getColumnName();
+                                if (!("id".equals(columnName) || "create_time".equals(columnName) || "update_time".equals(columnName) || "is_delete".equals(columnName))) {
+                                    if ("BigDecimal".equals(javaType)) {
+                                        imports.add("import java.math.BigDecimal;");
+                                    } else if ("LocalDateTime".equals(javaType)) {
+                                        imports.add("import java.time.LocalDateTime;");
+                                    }
+                                }
                                 StringBuilder columnNameSb = new StringBuilder();
                                 String[] s = columnName.split("_" );
                                 if (s.length == 1) {
@@ -94,7 +96,8 @@ public class GeneratorService {
                         // step2 获取模版路径
                         configuration.setDirectoryForTemplateLoading(new File(TEMPLATE_PATH));
                         // step3 创建数据模型
-                        Map<String, Object> dataMap = fillData(fullColumns, className, tableName, baseInfo, imports, tableDesc);
+                        ArrayList<String> strings = new ArrayList<>(imports);
+                        Map<String, Object> dataMap = fillData(fullColumns, className, tableName, baseInfo, strings, tableDesc);
                         // step4 加载模版文件
                         Template template = configuration.getTemplate("entity.ftl" );
                         // step5 生成数据
@@ -119,7 +122,7 @@ public class GeneratorService {
     }
 
 
-    public static Map<String, Object> fillData(List<ColumnDTO> columns, String className, String tableName, BaseInfo baseInfo, List<String> imports,String tableDesc) {
+    public static Map<String, Object> fillData(List<ColumnDTO> columns, String className, String tableName, BaseInfo baseInfo, List<String> imports, String tableDesc) {
         Map<String, Object> dataMap = new HashMap<>();
         dataMap.put("columns", columns);
         dataMap.put("className", className);
