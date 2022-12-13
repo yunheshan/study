@@ -1,4 +1,4 @@
-package com.bcs.study.module.${baseInfo.packageName}.bean;
+package com.bcs.study.module.${packageName}.bean;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;

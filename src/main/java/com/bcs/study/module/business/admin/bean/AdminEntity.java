@@ -1,4 +1,4 @@
-package com.bcs.study.module.business.user.admin.bean;
+package com.bcs.study.module.business.admin.bean;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;

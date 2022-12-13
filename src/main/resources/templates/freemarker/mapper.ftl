@@ -1,6 +1,6 @@
-package com.bcs.study.module.${baseInfo.packageName}.mapper;
+package com.bcs.study.module.${packageName}.mapper;
 
-import com.bcs.study.module.${baseInfo.packageName}.bean.${className}Entity;
+import com.bcs.study.module.${packageName}.bean.${className}Entity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 

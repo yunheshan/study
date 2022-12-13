@@ -1,4 +1,4 @@
-package com.bcs.study.module.${baseInfo.packageName}.controller;
+package com.bcs.study.module.${packageName}.controller;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;

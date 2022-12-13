@@ -1,8 +1,8 @@
-package com.bcs.study.module.business.user.admin.service.impl;
+package com.bcs.study.module.business.admin.service.impl;
 
-import com.bcs.study.module.business.user.admin.bean.AdminEntity;
-import com.bcs.study.module.business.user.admin.mapper.AdminMapper;
-import com.bcs.study.module.business.user.admin.service.AdminService;
+import com.bcs.study.module.business.admin.bean.AdminEntity;
+import com.bcs.study.module.business.admin.mapper.AdminMapper;
+import com.bcs.study.module.business.admin.service.AdminService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

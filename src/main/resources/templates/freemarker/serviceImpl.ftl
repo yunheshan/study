@@ -1,8 +1,8 @@
-package com.bcs.study.module.${baseInfo.packageName}.service.impl;
+package com.bcs.study.module.${packageName}.service.impl;
 
-import com.bcs.study.module.${baseInfo.packageName}.bean.${className}Entity;
-import com.bcs.study.module.${baseInfo.packageName}.mapper.${className}Mapper;
-import com.bcs.study.module.${baseInfo.packageName}.service.${className}Service;
+import com.bcs.study.module.${packageName}.bean.${className}Entity;
+import com.bcs.study.module.${packageName}.mapper.${className}Mapper;
+import com.bcs.study.module.${packageName}.service.${className}Service;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

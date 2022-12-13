@@ -47,7 +47,7 @@ public class GeneratorService {
                     //获取类名和包名
                     String className = getClassName(tableName, tablePrefix);
                     String lowerClassName = className.toLowerCase();
-                    baseInfo.setPackageName(baseInfo.getPackageName() + "." + tableName.split(tablePrefix)[1].replace("_", "" ));
+                    String packageName = baseInfo.getPackageName() + "." + tableName.split(tablePrefix)[1].replace("_", "" );
 
                     //验证表名是否准确
                     List<ColumnDTO> columns = generatorMapper.selectColumns(tableName);
@@ -74,8 +74,8 @@ public class GeneratorService {
                         configuration.setDirectoryForTemplateLoading(new File(TEMPLATE_PATH));
                         // step3 创建数据模型
                         ArrayList<String> importList = new ArrayList<>(imports);
-                        Map<String, Object> dataMap = fillData(fullColumns, className,lowerClassName, tableName, baseInfo, importList, tableDesc);
-                        Map<String, String> templateMap = GeneratorComponent.getTemplateMap(baseInfo.getPackageName(), className);
+                        Map<String, Object> dataMap = fillData(fullColumns, className,lowerClassName, tableName, baseInfo,packageName, importList, tableDesc);
+                        Map<String, String> templateMap = GeneratorComponent.getTemplateMap(packageName, className);
                         Set<Map.Entry<String, String>> entries = templateMap.entrySet();
                         for (Map.Entry<String, String> entry : entries) {
                             // step4 加载模版文件
@@ -182,12 +182,13 @@ public class GeneratorService {
     }
 
 
-    public static Map<String, Object> fillData(List<ColumnDTO> columns, String className,String lowerClassName, String tableName, BaseInfo baseInfo, List<String> imports, String tableDesc) {
+    public static Map<String, Object> fillData(List<ColumnDTO> columns, String className,String lowerClassName, String tableName, BaseInfo baseInfo,String packageName, List<String> imports, String tableDesc) {
         Map<String, Object> dataMap = new HashMap<>();
         dataMap.put("columns", columns);
         dataMap.put("className", className);
         dataMap.put("tableName", tableName);
         dataMap.put("baseInfo", baseInfo);
+        dataMap.put("packageName", packageName);
         dataMap.put("imports", imports);
         dataMap.put("tableDesc", tableDesc);
         dataMap.put("lowerClassName", lowerClassName);

@@ -1,6 +1,6 @@
-package com.bcs.study.module.business.user.admin.mapper;
+package com.bcs.study.module.business.admin.mapper;
 
-import com.bcs.study.module.business.user.admin.bean.AdminEntity;
+import com.bcs.study.module.business.admin.bean.AdminEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 

@@ -1,4 +1,4 @@
-package com.bcs.study.module.business.user.admin.controller;
+package com.bcs.study.module.business.admin.controller;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;

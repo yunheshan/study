@@ -1,6 +1,6 @@
-package com.bcs.study.module.${baseInfo.packageName}.service;
+package com.bcs.study.module.${packageName}.service;
 
-import com.bcs.study.module.${baseInfo.packageName}.bean.${className}Entity;
+import com.bcs.study.module.${packageName}.bean.${className}Entity;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
