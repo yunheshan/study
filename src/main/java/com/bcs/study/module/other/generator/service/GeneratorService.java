@@ -50,6 +50,13 @@ public class GeneratorService {
                     }
                     String className = classNameSb.toString() + "Entity";
                     List<ColumnDTO> columns = generatorMapper.selectColumns(tableName);
+                    if (ValidUtils.isEmpty(columns)) {
+                        try {
+                            throw new Exception("当前数据库中不曾存在表:" + tableName);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
                     Set<String> imports = new HashSet<>();
                     List<ColumnDTO> fullColumns = columns.stream()
                             .map(columnDTO -> {
@@ -66,9 +73,9 @@ public class GeneratorService {
                                 String columnName = columnDTO.getColumnName();
                                 if (!("id".equals(columnName) || "create_time".equals(columnName) || "update_time".equals(columnName) || "is_delete".equals(columnName))) {
                                     if ("BigDecimal".equals(javaType)) {
-                                        imports.add("import java.math.BigDecimal;");
+                                        imports.add("import java.math.BigDecimal;" );
                                     } else if ("LocalDateTime".equals(javaType)) {
-                                        imports.add("import java.time.LocalDateTime;");
+                                        imports.add("import java.time.LocalDateTime;" );
                                     }
                                 }
                                 StringBuilder columnNameSb = new StringBuilder();

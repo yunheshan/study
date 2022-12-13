@@ -5,7 +5,7 @@ import java.util.*;
 import com.bcs.study.StudyApplication;
 import com.bcs.study.module.other.generator.bean.BaseInfo;
 import com.bcs.study.module.other.generator.service.GeneratorService;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,7 +18,7 @@ import org.springframework.test.context.junit4.SpringRunner;
  * @Desc 代码生成器
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = StudyApplication.class,webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = StudyApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class GenerateFile {
 
 
