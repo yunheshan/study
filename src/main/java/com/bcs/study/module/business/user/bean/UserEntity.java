@@ -9,7 +9,7 @@ import com.bcs.study.common.bean.BaseEntity;
 import lombok.*;
 
 /**
- * @Desc 
+ * @Desc 用户表
  * @Date
  * @Author bcs
  * @Version 1.0.0
