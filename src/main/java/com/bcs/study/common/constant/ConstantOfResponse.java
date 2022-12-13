@@ -8,7 +8,9 @@ package com.bcs.study.common.constant;
  */
 public enum ConstantOfResponse {
 
+    //通用成功
     SUCCESS(200, "操作成功!", true),
+    //通用失败
     FAIL(400, "操作失败!", false);
 
     ConstantOfResponse(Integer code, String msg, Boolean status) {
@@ -17,10 +19,10 @@ public enum ConstantOfResponse {
         this.status = status;
     }
 
-    public Integer code;
+    public final Integer code;
 
-    public String msg;
+    public final String msg;
 
-    public Boolean status;
+    public final Boolean status;
 
 }
