@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
  * @Author bcs
  * @Date 2022/12/8 14:28
  * @Version 1.0
- * @Desc 请求响应信息
+ * @Desc 通用请求响应信息
  */
 @Data
 @NoArgsConstructor
