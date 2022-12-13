@@ -22,7 +22,7 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 @TableName("${tableName}")
-public class ${className} extends BaseEntity{
+public class ${className}Entity extends BaseEntity{
 
 <#list columns as column>
     <#if column.columnName!= 'id' && column.columnName!= 'create_time' && column.columnName!= 'update_time' && column.columnName!= 'is_delete'>
