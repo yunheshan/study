@@ -34,7 +34,7 @@ public class GenerateFile {
                 //输入表的前缀
                 .tablePrefix("t_")
                 //输入要生成的表
-                .tableNames(Collections.singletonList("t_admin"))
+                .tableNames(Collections.singletonList("t_user"))
                 //输入模块包名(如业务包business)
                 .packageName("business")
                 .build();

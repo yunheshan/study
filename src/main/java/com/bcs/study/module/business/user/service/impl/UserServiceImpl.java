@@ -1,20 +1,18 @@
 package com.bcs.study.module.business.user.service.impl;
 
-import com.bcs.study.module.business.user.bean.User;
+import com.bcs.study.module.business.user.bean.UserEntity;
 import com.bcs.study.module.business.user.mapper.UserMapper;
 import com.bcs.study.module.business.user.service.UserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**
- * <p>
- *  服务实现类
- * </p>
- *
- * @author bcs
- * @since 2022-12-08
- */
+* @Desc  服务实现 接口
+* @Data
+* @Author bcs
+* @Version 1.0.0
+*/
 @Service
-public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
+public class UserServiceImpl extends ServiceImpl<UserMapper, UserEntity> implements UserService {
 
 }

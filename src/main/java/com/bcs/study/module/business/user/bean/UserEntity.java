@@ -1,4 +1,4 @@
-package com.bcs.study.module.business.admin.bean;
+package com.bcs.study.module.business.user.bean;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -9,7 +9,7 @@ import com.bcs.study.common.bean.BaseEntity;
 import lombok.*;
 
 /**
- * @Desc 管理员表
+ * @Desc 
  * @Date
  * @Author bcs
  * @Version 1.0.0
@@ -18,8 +18,8 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@TableName("t_admin")
-public class AdminEntity extends BaseEntity {
+@TableName("t_user")
+public class UserEntity extends BaseEntity {
 
     /**
      * 用户名
@@ -34,15 +34,27 @@ public class AdminEntity extends BaseEntity {
     private String password;
 
     /**
-     * 账户余额
+     * 昵称
+     */
+    @TableField("nickname")
+    private String nickname;
+
+    /**
+     * 手机号
+     */
+    @TableField("phone")
+    private String phone;
+
+    /**
+     * 等级
+     */
+    @TableField("level")
+    private Integer level;
+
+    /**
+     * 余额
      */
     @TableField("amount")
     private BigDecimal amount;
-
-    /**
-     * 状态(0 默认 ...)
-     */
-    @TableField("status")
-    private Integer status;
 
 }

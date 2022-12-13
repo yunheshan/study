@@ -1,18 +1,16 @@
 package com.bcs.study.module.business.user.mapper;
 
-import com.bcs.study.module.business.user.bean.User;
+import com.bcs.study.module.business.user.bean.UserEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
- * <p>
- *  Mapper 接口
- * </p>
- *
- * @author bcs
- * @since 2022-12-08
- */
+* @Desc  Mapper 接口
+* @Data
+* @Author bcs
+* @Version 1.0.0
+*/
 @Mapper
-public interface UserMapper extends BaseMapper<User> {
+public interface UserMapper extends BaseMapper<UserEntity> {
 
 }
