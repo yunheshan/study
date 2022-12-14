@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  * @Desc ${tableDesc} 前端控制器
- * @Data
+ * @Data ${.now}
  * @Author ${baseInfo.author}
  * @Version 1.0.0
  */

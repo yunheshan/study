@@ -1,6 +1,6 @@
 package com.bcs.study.module.business.user.mapper;
 
-import com.bcs.study.module.business.user.bean.UserEntity;
+import com.bcs.study.module.business.user.bean.UserDO;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -11,6 +11,6 @@ import org.apache.ibatis.annotations.Mapper;
  * @Version 1.0.0
  */
 @Mapper
-public interface UserMapper extends BaseMapper<UserEntity> {
+public interface UserMapper extends BaseMapper<UserDO> {
 
 }

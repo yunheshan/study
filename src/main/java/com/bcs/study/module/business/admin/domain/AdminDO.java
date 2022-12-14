@@ -1,11 +1,11 @@
-package com.bcs.study.module.business.admin.bean;
+package com.bcs.study.module.business.admin.domain;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.math.BigDecimal;
 
-import com.bcs.study.common.bean.BaseEntity;
+import com.bcs.study.common.bean.BaseDO;
 import lombok.*;
 
 /**
@@ -19,7 +19,7 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 @TableName("t_admin")
-public class AdminEntity extends BaseEntity {
+public class AdminDO extends BaseDO {
 
     /**
      * 用户名

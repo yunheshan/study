@@ -82,7 +82,7 @@ public class GeneratorService {
                             Template template = configuration.getTemplate(entry.getKey());
                             // step5 生成数据
                             File docFile;
-                            if (entry.getKey().equals("mapper.xml.ftl" )) {
+                            if (entry.getKey().equals("dao.xml.ftl" )) {
                                 docFile = new File(new File("" ).getCanonicalPath() + XML_PATH + entry.getValue());
                             } else {
                                 docFile = new File(new File("" ).getCanonicalPath() + CLASS_PATH + entry.getValue());

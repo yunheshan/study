@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
  * @Desc
  */
 @Data
-public class BaseEntity {
+public class BaseDO {
 
     /**
      * 主键id
@@ -37,6 +37,6 @@ public class BaseEntity {
     /**
      * 逻辑删除
      */
-    @TableField("is_delete")
-    private Integer isDelete;
+    @TableField("is_deleted")
+    private Integer isDeleted;
 }

@@ -1,8 +1,8 @@
 server:
   port: 8100
 mybatis-plus:
-  type-aliases-package: com.bcs.study.module.*.*.bean
-  mapper-locations: classpath:/mapper/**/*.xml
+  type-aliases-package: com.bcs.study.module.*.*.domain
+  mapper-locations: classpath:/mapper/**/**/*.xml
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 spring:

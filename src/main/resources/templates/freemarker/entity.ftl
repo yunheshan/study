@@ -1,4 +1,4 @@
-package com.bcs.study.module.${packageName}.bean;
+package com.bcs.study.module.${packageName}.domain;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -7,12 +7,12 @@ import com.baomidou.mybatisplus.annotation.TableName;
 ${import}
 </#list>
 
-import com.bcs.study.common.bean.BaseEntity;
+import com.bcs.study.common.bean.BaseDO;
 import lombok.*;
 
 /**
  * @Desc ${tableDesc}
- * @Date
+ * @Date ${.now}
  * @Author ${baseInfo.author}
  * @Version 1.0.0
  */
@@ -21,7 +21,7 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 @TableName("${tableName}")
-public class ${className}Entity extends BaseEntity {
+public class ${className}DO extends BaseDO {
 
 <#list columns as column>
     <#if column.columnName!= 'id' && column.columnName!= 'create_time' && column.columnName!= 'update_time' && column.columnName!= 'is_delete'>
