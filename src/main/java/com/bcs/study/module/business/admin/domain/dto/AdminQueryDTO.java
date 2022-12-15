@@ -32,6 +32,6 @@ public class AdminQueryDTO extends PageParamDTO {
 
     @Schema(description = "创建时间结束" )
     @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
-    private LocalDateTime createTimEnd;
+    private LocalDateTime createTimeEnd;
 
 }
