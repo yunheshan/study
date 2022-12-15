@@ -17,7 +17,7 @@ import java.util.List;
  * @Author ${baseInfo.author}
  * @Version 1.0.0
  */
-public interface ${className}Service extends IService<${className}DO> {
+public interface I${className}Service extends IService<${className}DO> {
 
     /**
     * 分页查询

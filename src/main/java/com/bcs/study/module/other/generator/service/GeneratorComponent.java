@@ -47,12 +47,16 @@ public class GeneratorComponent {
 
     public static Map<String,String> getTemplateMap(String packagePath,String classname){
         HashMap<String, String> tempMap = new HashMap<>();
-        tempMap.put("entity.ftl",packagePath.replace(".", "/" ) + "/bean/" + classname + "Entity.java");
-        tempMap.put("mapper.ftl",packagePath.replace(".", "/" ) + "/mapper/" + classname + "Mapper.java");
-        tempMap.put("service.ftl",packagePath.replace(".", "/" ) + "/service/" + classname + "Service.java");
+        tempMap.put("do.ftl",packagePath.replace(".", "/" ) + "/domain/" + classname + "DO.java");
+        tempMap.put("vo.ftl",packagePath.replace(".", "/" ) + "/domain/vo/" + classname + "Entity.java");
+        tempMap.put("dao.ftl",packagePath.replace(".", "/" ) + "/dao/" + classname + "Dao.java");
+        tempMap.put("service.ftl",packagePath.replace(".", "/" ) + "/service/I" + classname + "Service.java");
         tempMap.put("serviceImpl.ftl",packagePath.replace(".", "/" ) + "/service/impl/" + classname + "ServiceImpl.java");
+        tempMap.put("queryDTO.ftl",packagePath.replace(".", "/" ) + "/domain/dto/" + classname + "QueryDTO.java");
+        tempMap.put("saveDTO.ftl",packagePath.replace(".", "/" ) + "/domain/dto/" + classname + "SaveDTO.java");
+        tempMap.put("updateDTO.ftl",packagePath.replace(".", "/" ) + "/domain/dto/" + classname + "UpdateDTO.java");
         tempMap.put("controller.ftl",packagePath.replace(".", "/" ) + "/controller/" + classname + "Controller.java");
-        tempMap.put("mapper.xml.ftl",packagePath.replace(".", "/" ) + "/"+classname + "Mapper.xml");
+        tempMap.put("mapper.ftl",packagePath.replace(".", "/" ) + "/"+classname + "Mapper.xml");
         return tempMap;
     }
 

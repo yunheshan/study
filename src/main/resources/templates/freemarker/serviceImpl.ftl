@@ -10,7 +10,7 @@ import com.bcs.study.module.${packageName}.domain.dto.${className}SaveDTO;
 import com.bcs.study.module.${packageName}.domain.dto.${className}QueryDTO;
 import com.bcs.study.module.${packageName}.domain.dto.${className}UpdateDTO;
 import com.bcs.study.module.${packageName}.domain.vo.${className}VO;
-import com.bcs.study.module.${packageName}.service.${className}Service;
+import com.bcs.study.module.${packageName}.service.I${className}Service;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.bcs.study.util.PackedBeanUtils;
 import com.bcs.study.util.PageUtils;
@@ -25,7 +25,7 @@ import java.util.List;
  * @Version 1.0.0
  */
 @Service
-public class ${className}ServiceImpl extends ServiceImpl<${className}Dao, ${className}DO> implements ${className}Service {
+public class ${className}ServiceImpl extends ServiceImpl<${className}Dao, ${className}DO> implements I${className}Service {
 
     @Override
     public ResponseDTO<PageResultDTO<${className}VO>> listPage${className}s(${className}QueryDTO ${lowerClassName}QueryDTO) {
