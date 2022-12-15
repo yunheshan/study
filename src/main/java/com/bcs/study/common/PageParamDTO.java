@@ -1,6 +1,8 @@
 package com.bcs.study.common;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.util.List;
@@ -24,6 +26,7 @@ public class PageParamDTO {
      * 每页数量
      */
     @Schema(description = "每页数量" )
+    @Max(value = 200,message = "每页最大限制为200")
     private Long pageSize;
 
     /**

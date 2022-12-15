@@ -13,7 +13,7 @@ import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
  * @Author bcs
  * @Date 2022/12/14 16:38
  * @Version 1.0
- * @Desc
+ * @Desc Jackson配置(解决Json转换时Long类型后几位精度丢失问题)
  */
 @Configuration
 public class JacksonConfig {

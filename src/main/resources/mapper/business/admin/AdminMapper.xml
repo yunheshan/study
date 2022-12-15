@@ -1,9 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bcs.study.module.business.admin.dao.AdminDao">
+    <resultMap id="AdminVO" type="com.bcs.study.module.business.admin.domain.vo.AdminVO"/>
 
-    <select id="queryByPage" resultType="com.bcs.study.module.business.admin.domain.vo.AdminVO">
-        select *
-        from t_admin
+    <sql id="allColumns">
+        ${alias}.`id`,
+        ${alias}.`name`,
+        ${alias}.`password`,
+        ${alias}.`amount`,
+        ${alias}.`status`,
+        ${alias}.`create_time`,
+        ${alias}.`update_time`,
+        ${alias}.`is_deleted`,
+    </sql>
+
+    <update id="removeBatchAdmin">
+        update t_admin ta set is_deleted = 1 where id in
+        <foreach collection="list" open="(" close=")" separator="," item="id" >
+            #{id}
+        </foreach>
+    </update>
+
+    <delete id="deleteBatchAdmin">
+        delete from t_admin ta where id in
+        <foreach collection="list" open="(" close=")" separator="," item="id" >
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="listPageAdmins" resultMap="AdminVO">
+        select
+        <trim suffixOverrides=",">
+            <include refid="allColumns">
+                <property name="alias" value="ta"/>
+            </include>
+        </trim>
+        from t_admin ta
+        <where>
+            ta.is_deleted = 0
+            <if test="adminQueryDTO.createTimeBegin!=null">
+                and ta.create_time &gt;= #{adminQueryDTO.createTimeBegin}
+            </if>
+            <if test="adminQueryDTO.createTimeEnd!=null">
+                and ta.create_time &lt;= #{adminQueryDTO.createTimeEnd}
+            </if>
+            <if test="adminQueryDTO.updateTimeBegin!=null">
+                and ta.update_time &gt;= #{adminQueryDTO.updateTimeBegin}
+            </if>
+            <if test="adminQueryDTO.updateTimeEnd!=null">
+                and ta.update_time &lt;= #{adminQueryDTO.updateTimeEnd}
+            </if>
+        </where>
+        order by ta.update_time desc
+    </select>
+
+    <select id="selectById" resultMap="AdminVO">
+        select
+        <trim suffixOverrides=",">
+            <include refid="allColumns">
+                <property name="alias" value="ta"/>
+            </include>
+        </trim>
+        from t_admin ta
+        <where>
+            ta.is_deleted = 0
+            and ta.id = #{id}
+        </where>
     </select>
 </mapper>

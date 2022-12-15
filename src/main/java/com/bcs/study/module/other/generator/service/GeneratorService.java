@@ -34,6 +34,11 @@ public class GeneratorService {
         List<String> tableNames = baseInfo.getTableNames();
         tableNames.forEach(tableName -> {
 
+                    StringBuilder alias = new StringBuilder();
+                    String[] s = tableName.split("_" );
+                    for (String s1 : s) {
+                        alias.append(s1.charAt(0));
+                    }
                     //验证前缀和表名
                     String tablePrefix = baseInfo.getTablePrefix();
                     if (tableName.indexOf(tablePrefix) != 0) {
@@ -74,7 +79,7 @@ public class GeneratorService {
                         configuration.setDirectoryForTemplateLoading(new File(TEMPLATE_PATH));
                         // step3 创建数据模型
                         ArrayList<String> importList = new ArrayList<>(imports);
-                        Map<String, Object> dataMap = fillData(fullColumns, className,lowerClassName, tableName, baseInfo,packageName, importList, tableDesc);
+                        Map<String, Object> dataMap = fillData(fullColumns, columns, className, lowerClassName, tableName, alias.toString(),baseInfo, packageName, importList, tableDesc);
                         Map<String, String> templateMap = GeneratorComponent.getTemplateMap(packageName, className);
                         Set<Map.Entry<String, String>> entries = templateMap.entrySet();
                         for (Map.Entry<String, String> entry : entries) {
@@ -82,7 +87,7 @@ public class GeneratorService {
                             Template template = configuration.getTemplate(entry.getKey());
                             // step5 生成数据
                             File docFile;
-                            if (entry.getKey().equals("dao.xml.ftl" )) {
+                            if (entry.getKey().equals("mapper.ftl" )) {
                                 docFile = new File(new File("" ).getCanonicalPath() + XML_PATH + entry.getValue());
                             } else {
                                 docFile = new File(new File("" ).getCanonicalPath() + CLASS_PATH + entry.getValue());
@@ -182,11 +187,13 @@ public class GeneratorService {
     }
 
 
-    public static Map<String, Object> fillData(List<ColumnDTO> columns, String className,String lowerClassName, String tableName, BaseInfo baseInfo,String packageName, List<String> imports, String tableDesc) {
+    public static Map<String, Object> fillData(List<ColumnDTO> columns, List<ColumnDTO> oriColumns, String className, String lowerClassName, String tableName,String alias, BaseInfo baseInfo, String packageName, List<String> imports, String tableDesc) {
         Map<String, Object> dataMap = new HashMap<>();
         dataMap.put("columns", columns);
+        dataMap.put("oriColumns", oriColumns);
         dataMap.put("className", className);
         dataMap.put("tableName", tableName);
+        dataMap.put("alias", alias);
         dataMap.put("baseInfo", baseInfo);
         dataMap.put("packageName", packageName);
         dataMap.put("imports", imports);

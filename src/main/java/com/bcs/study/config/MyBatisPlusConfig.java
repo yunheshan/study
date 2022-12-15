@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
  * @Author bcs
  * @Date 2022/12/14 9:12
  * @Version 1.0
- * @Desc
+ * @Desc Mybatis配置类
  */
 @Configuration
 public class MyBatisPlusConfig {

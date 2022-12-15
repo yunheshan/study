@@ -31,11 +31,11 @@ public class TestWithSpring {
 
     @Test
     public void test() throws IOException {
-//        System.out.println(generatorMapper.selectDesc("t_admin"));
-//        generatorMapper.selectColumns("t_admin").forEach(System.out::println);
-        File file = new File("" );
-        String canonicalPath = file.getCanonicalPath();
-        System.out.println(canonicalPath);
+        System.out.println(generatorMapper.selectDesc("t_admin"));
+        generatorMapper.selectColumns("t_admin").forEach(System.out::println);
+//        File file = new File("" );
+//        String canonicalPath = file.getCanonicalPath();
+//        System.out.println(canonicalPath);
     }
 
 }

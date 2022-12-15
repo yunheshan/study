@@ -17,8 +17,8 @@ public class SpringDocConfig {
     @Bean
     public OpenAPI studyOpenApi() {
         return new OpenAPI()
-                .info(new Info().title("个人学习项目SpringDoc文档")
-                        .description("学习用")
+                .info(new Info().title("SpringDoc文档")
+                        .description("个人")
                         .version("v1.0.0"));
     }
 }

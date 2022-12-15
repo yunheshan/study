@@ -1,4 +1,4 @@
-package com.bcs.study.module.business.admin.domain.dto;
+package com.bcs.study.module.${packageName}.domain.dto;
 
 import com.bcs.study.common.PageParamDTO;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -9,14 +9,14 @@ import lombok.EqualsAndHashCode;
 import java.time.LocalDateTime;
 
 /**
- * @Author bcs
- * @Date 2022/12/14 10:12
- * @Version 1.0
  * @Desc
+ * @Date ${.now}
+ * @Author ${baseInfo.author}
+ * @Version 1.0.0
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class AdminQueryDTO extends PageParamDTO {
+public class ${className}QueryDTO extends PageParamDTO {
 
     @Schema(description = "更新时间开始" )
     @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")

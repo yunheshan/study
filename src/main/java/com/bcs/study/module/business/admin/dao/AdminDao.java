@@ -8,6 +8,8 @@ import com.bcs.study.module.business.admin.domain.dto.AdminQueryDTO;
 import com.bcs.study.module.business.admin.domain.vo.AdminVO;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
  * @Desc 管理员表 Mapper 接口
  * @Data
@@ -17,5 +19,12 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface AdminDao extends BaseMapper<AdminDO> {
 
-    IPage<AdminVO> queryByPage(Page<AdminVO> page, AdminQueryDTO adminQueryDTO);
+    IPage<AdminVO> listPageAdmins(Page<AdminVO> page, AdminQueryDTO adminQueryDTO);
+
+    AdminVO selectById(Long id);
+
+    void removeBatchAdmin(List<Long> ids);
+
+    void deleteBatchAdmin(List<Long> ids);
+
 }

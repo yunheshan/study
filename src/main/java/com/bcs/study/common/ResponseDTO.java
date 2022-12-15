@@ -1,6 +1,7 @@
 package com.bcs.study.common;
 
 import com.bcs.study.common.constant.ResponseEnum;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,12 +19,16 @@ import lombok.NoArgsConstructor;
 @Builder
 public class ResponseDTO<T> {
 
+    @Schema(description = "返回状态码")
     private Integer code;
 
+    @Schema(description = "返回消息")
     private String msg;
 
+    @Schema(description = "是否成功")
     private Boolean status;
 
+    @Schema(description = "返回数据")
     private T data;
 
     public ResponseDTO(ResponseEnum responseEnum) {
@@ -47,7 +52,7 @@ public class ResponseDTO<T> {
 
 
 
-    public static ResponseDTO success() {
+    public static <T> ResponseDTO<T> success() {
         return new ResponseDTO(ResponseEnum.SUCCESS);
     }
 

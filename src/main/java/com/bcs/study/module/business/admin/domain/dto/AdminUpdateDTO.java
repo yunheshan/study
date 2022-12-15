@@ -1,5 +1,6 @@
 package com.bcs.study.module.business.admin.domain.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 /**
@@ -11,5 +12,9 @@ import lombok.Data;
 @Data
 public class AdminUpdateDTO extends AdminSaveDTO{
 
+    /**
+     * id
+     */
+    @Schema(description = "id" )
     private Long id;
 }

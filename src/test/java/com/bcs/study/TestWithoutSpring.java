@@ -33,4 +33,12 @@ public class TestWithoutSpring {
         String canonicalName = Class.forName(s).getCanonicalName();
         System.out.println(canonicalName);
     }
+    @Test
+    public void test3() {
+
+        String s = "java";
+        String substring = s.substring(0,1);
+        System.out.println(substring);
+
+    }
 }
