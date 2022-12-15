@@ -29,7 +29,7 @@ public class AdminController {
 
     @GetMapping("/listPageAdmins")
     @Operation(summary = "分页查询管理员",description = "分页查询管理员description" )
-    public ResponseDTO<PageResultDTO<AdminVO>> listPageAdmins(@Parameter(description = "分页参数")@RequestBody AdminQueryDTO adminQueryDTO){
+    public ResponseDTO<PageResultDTO<AdminVO>> listPageAdmins(@Parameter(description = "分页参数") AdminQueryDTO adminQueryDTO){
         return adminService.listPageAdmins(adminQueryDTO);
     }
 
