@@ -1,6 +1,6 @@
-package com.bcs.study.module.business.admin.domain.dto;
+package com.bcs.study.module.business.admin.domain.form;
 
-import com.bcs.study.common.PageParamDTO;
+import com.bcs.study.common.PageParamForm;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class AdminQueryDTO extends PageParamDTO {
+public class AdminQueryForm extends PageParamForm {
 
     @Schema(description = "更新时间开始" )
     @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")

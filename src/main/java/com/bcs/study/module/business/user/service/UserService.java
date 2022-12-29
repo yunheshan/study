@@ -1,6 +1,6 @@
 package com.bcs.study.module.business.user.service;
 
-import com.bcs.study.module.business.user.bean.UserDO;
+import com.bcs.study.module.business.user.bean.UserEntity;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -9,6 +9,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @Author bcs
  * @Version 1.0.0
  */
-public interface UserService extends IService<UserDO> {
+public interface UserService extends IService<UserEntity> {
 
 }

@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
  * @Desc
  */
 @Data
-public class BaseDO {
+public class BaseEntity {
 
     /**
      * 主键id

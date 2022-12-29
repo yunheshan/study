@@ -1,4 +1,4 @@
-package com.bcs.study.module.${packageName}.domain;
+package com.bcs.study.module.${packageName}.domain.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 ${import}
 </#list>
 
-import com.bcs.study.common.bean.BaseDO;
+import com.bcs.study.common.bean.BaseEntity;
 import lombok.*;
 
 /**

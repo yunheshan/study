@@ -2,11 +2,11 @@ package com.bcs.study.module.${packageName}.controller;
 
 import com.bcs.study.common.PageResultDTO;
 import com.bcs.study.common.ResponseDTO;
-import com.bcs.study.module.${packageName}.domain.dto.${className}SaveDTO;
-import com.bcs.study.module.${packageName}.domain.dto.${className}QueryDTO;
-import com.bcs.study.module.${packageName}.domain.dto.${className}UpdateDTO;
+import com.bcs.study.module.${packageName}.domain.form.${className}AddForm;
+import com.bcs.study.module.${packageName}.domain.form.${className}QueryForm;
+import com.bcs.study.module.${packageName}.domain.form.${className}UpdateForm;
 import com.bcs.study.module.${packageName}.domain.vo.${className}VO;
-import com.bcs.study.module.${packageName}.service.I${className}Service;
+import com.bcs.study.module.${packageName}.service.${className}Service;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,46 +21,39 @@ import java.util.List;
  * @Version 1.0.0
  */
 @RestController
-@RequestMapping("/${lowerClassName}")
 @Tag(name = "${tableDesc}控制器")
 public class ${className}Controller {
 
     @Autowired
-    private I${className}Service i${className}Service;
+    private ${className}Service ${lowerClassName}Service;
 
-    @PostMapping("/listPage${className}s")
+    @PostMapping("/${lowerClassName}/pageQuery${className}")
     @Operation(summary = "分页查询${tableDesc}")
-    public ResponseDTO<PageResultDTO<${className}VO>> listPage${className}s(@RequestBody ${className}QueryDTO ${lowerClassName}QueryDTO){
-        return i${className}Service.listPage${className}s(${lowerClassName}QueryDTO);
+    public ResponseDTO<PageResultDTO<${className}VO>> pageQuery${className}(@RequestBody ${className}QueryForm ${lowerClassName}QueryForm){
+        return {lowerClassName}Service.pageQuery${className}(${lowerClassName}QueryForm);
     }
 
-    @PostMapping("/get${className}")
+    @PostMapping("/${lowerClassName}/get${className}")
     @Operation(summary = "根据ID查询${tableDesc}")
     public ResponseDTO<${className}VO> get${className}(@RequestBody Long id){
-        return i${className}Service.get${className}(id);
+        return {lowerClassName}Service.get${className}(id);
     }
 
-    @PostMapping("/save${className}")
+    @PostMapping("/${lowerClassName}/save${className}")
     @Operation(summary = "添加${tableDesc}")
-    public ResponseDTO<String> save${className}(@RequestBody ${className}SaveDTO ${lowerClassName}SaveDTO){
-        return i${className}Service.save${className}(${lowerClassName}SaveDTO);
+    public ResponseDTO<String> save${className}(@RequestBody ${className}AddForm ${lowerClassName}AddForm){
+        return {lowerClassName}Service.save${className}(${lowerClassName}AddForm);
     }
 
-    @PostMapping("/update${className}")
+    @PostMapping("/${lowerClassName}/update${className}")
     @Operation(summary = "修改${tableDesc}")
-    public ResponseDTO<String> update${className}(@RequestBody ${className}UpdateDTO ${lowerClassName}UpdateDTO){
-        return i${className}Service.update${className}(${lowerClassName}UpdateDTO);
+    public ResponseDTO<String> update${className}(@RequestBody ${className}UpdateForm ${lowerClassName}UpdateForm){
+        return {lowerClassName}Service.update${className}(${lowerClassName}UpdateForm);
     }
 
-    @PostMapping("/removeBatch${className}")
+    @PostMapping("/${lowerClassName}/batchDelete${className}")
     @Operation(summary = "批量删除${tableDesc}(逻辑删除)")
-    public ResponseDTO<String> removeBatch${className}(@RequestBody List<Long> ids){
-        return i${className}Service.removeBatch${className}(ids);
-    }
-
-    @PostMapping("/deleteBatch${className}")
-    @Operation(summary = "批量删除${tableDesc}(物理删除)")
-    public ResponseDTO<String> deleteBatch${className}(@RequestBody List<Long> ids){
-        return i${className}Service.deleteBatch${className}(ids);
+    public ResponseDTO<String> batchDelete${className}(@RequestBody List<Long> ids){
+        return {lowerClassName}Service.batchDelete${className}(ids);
     }
 }

@@ -1,4 +1,4 @@
-package com.bcs.study.module.business.admin.domain.dto;
+package com.bcs.study.module.business.admin.domain.form;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
@@ -10,7 +10,7 @@ import lombok.Data;
  * @Desc
  */
 @Data
-public class AdminUpdateDTO extends AdminSaveDTO{
+public class AdminUpdateForm extends AdminAddForm {
 
     /**
      * id

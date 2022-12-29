@@ -1,4 +1,4 @@
-package com.bcs.study.module.${packageName}.domain.dto;
+package com.bcs.study.module.${packageName}.domain.form;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
@@ -14,7 +14,7 @@ import lombok.Data;
  * @Desc
  */
 @Data
-public class ${className}SaveDTO {
+public class ${className}AddForm {
 
 <#list columns as column>
     <#if column.columnName!= 'id' && column.columnName!= 'create_time' && column.columnName!= 'update_time' && column.columnName!= 'is_delete'>

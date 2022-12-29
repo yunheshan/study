@@ -3,10 +3,9 @@ package com.bcs.study.util;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.bcs.study.common.OrderItem;
-import com.bcs.study.common.PageParamDTO;
+import com.bcs.study.common.PageParamForm;
 import com.bcs.study.common.PageResultDTO;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -36,15 +35,15 @@ public class PageUtils {
 
     /**
      * 把分页查询参数转化为Page对象
-     * @param pageParamDTO
+     * @param pageParamForm
      * @param <T>
      * @return
      */
-    public static <T> Page<T> convert2QueryPage(PageParamDTO pageParamDTO){
+    public static <T> Page<T> convert2QueryPage(PageParamForm pageParamForm){
         Page<T> page = new Page<>();
-        page.setSize(pageParamDTO.getPageSize());
-        page.setCurrent(pageParamDTO.getPageIndex());
-        List<OrderItem> orders = pageParamDTO.getOrders();
+        page.setSize(pageParamForm.getPageSize());
+        page.setCurrent(pageParamForm.getPageIndex());
+        List<OrderItem> orders = pageParamForm.getOrders();
         if (!ValidUtils.isEmpty(orders)){
             List<com.baomidou.mybatisplus.core.metadata.OrderItem> orderItems = orders.stream()
                     .map(order -> {

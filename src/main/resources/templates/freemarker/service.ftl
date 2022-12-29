@@ -2,11 +2,11 @@ package com.bcs.study.module.${packageName}.service;
 
 import com.bcs.study.common.PageResultDTO;
 import com.bcs.study.common.ResponseDTO;
-import com.bcs.study.module.${packageName}.domain.${className}DO;
+import com.bcs.study.module.${packageName}.domain.entity.${className}Entity;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.bcs.study.module.${packageName}.domain.dto.${className}SaveDTO;
-import com.bcs.study.module.${packageName}.domain.dto.${className}QueryDTO;
-import com.bcs.study.module.${packageName}.domain.dto.${className}UpdateDTO;
+import com.bcs.study.module.${packageName}.domain.form.${className}AddForm;
+import com.bcs.study.module.${packageName}.domain.form.${className}QueryForm;
+import com.bcs.study.module.${packageName}.domain.form.${className}UpdateForm;
 import com.bcs.study.module.${packageName}.domain.vo.${className}VO;
 
 import java.util.List;
@@ -17,14 +17,14 @@ import java.util.List;
  * @Author ${baseInfo.author}
  * @Version 1.0.0
  */
-public interface I${className}Service extends IService<${className}DO> {
+public interface ${className}Service extends IService<${className}Entity> {
 
     /**
     * 分页查询
-    * @param ${lowerClassName}QueryDTO
+    * @param ${lowerClassName}QueryForm
     * @return
     */
-    ResponseDTO<PageResultDTO<${className}VO>> listPage${className}s(${className}QueryDTO ${lowerClassName}QueryDTO);
+    ResponseDTO<PageResultDTO<${className}VO>> pageQuery${className}(${className}QueryForm ${lowerClassName}QueryForm);
 
     /**
     * 根据ID查询
@@ -35,29 +35,22 @@ public interface I${className}Service extends IService<${className}DO> {
 
     /**
     * 新增
-    * @param ${lowerClassName}SaveDTO
+    * @param ${lowerClassName}AddForm
     * @return
     */
-    ResponseDTO<String> save${className}(${className}SaveDTO ${lowerClassName}SaveDTO);
+    ResponseDTO<String> save${className}(${className}AddForm ${lowerClassName}AddForm);
 
     /**
     * 更改
-    * @param ${lowerClassName}UpdateDTO
+    * @param ${lowerClassName}QueryForm
     * @return
     */
-    ResponseDTO<String> update${className}(${className}UpdateDTO ${lowerClassName}UpdateDTO);
+    ResponseDTO<String> update${className}(${className}QueryForm ${lowerClassName}QueryForm);
 
     /**
     * 批量删除(逻辑删除)
     * @param ids
     * @return
     */
-    ResponseDTO<String> removeBatch${className}(List<Long> ids);
-
-    /**
-    * 批量删除(物理删除)
-    * @param ids
-    * @return
-    */
-    ResponseDTO<String> deleteBatch${className}(List<Long> ids);
+    ResponseDTO<String> batchDelete${className}(List<Long> ids);
 }

@@ -2,9 +2,9 @@ package com.bcs.study.module.business.admin.dao;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.bcs.study.module.business.admin.domain.AdminDO;
+import com.bcs.study.module.business.admin.domain.entity.AdminEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.bcs.study.module.business.admin.domain.dto.AdminQueryDTO;
+import com.bcs.study.module.business.admin.domain.form.AdminQueryForm;
 import com.bcs.study.module.business.admin.domain.vo.AdminVO;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -17,14 +17,12 @@ import java.util.List;
  * @Version 1.0.0
  */
 @Mapper
-public interface AdminDao extends BaseMapper<AdminDO> {
+public interface AdminDao extends BaseMapper<AdminEntity> {
 
-    IPage<AdminVO> listPageAdmins(Page<AdminVO> page, AdminQueryDTO adminQueryDTO);
+    IPage<AdminVO> pageQueryAdmin(Page<AdminVO> page, AdminQueryForm adminQueryForm);
 
     AdminVO selectById(Long id);
 
-    void removeBatchAdmin(List<Long> ids);
-
-    void deleteBatchAdmin(List<Long> ids);
+    void batchDeleteAdmin(List<Long> ids);
 
 }

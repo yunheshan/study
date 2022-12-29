@@ -9,21 +9,14 @@
         </#list>
     </sql>
 
-    <update id="removeBatch${className}">
+    <update id="batchDelete${className}">
         update ${tableName} ${alias} set is_deleted = 1 where id in
         <foreach collection="list" open="(" close=")" separator="," item="id" >
             #{id}
         </foreach>
     </update>
 
-    <delete id="deleteBatch${className}">
-        delete from ${tableName} ${alias} where id in
-        <foreach collection="list" open="(" close=")" separator="," item="id" >
-            #{id}
-        </foreach>
-    </delete>
-
-    <select id="listPage${className}s" resultMap="${className}VO">
+    <select id="pageQuery${className}" resultMap="${className}VO">
         select
         <trim suffixOverrides=",">
             <include refid="allColumns">
@@ -33,17 +26,17 @@
         from ${tableName} ${alias}
         <where>
             ${alias}.is_deleted = 0
-            <if test="adminQueryDTO.createTimeBegin!=null">
-                and ${alias}.create_time &gt;= #{adminQueryDTO.createTimeBegin}
+            <if test="${lowerClassName}QueryForm.createTimeBegin!=null">
+                and ${alias}.create_time &gt;= #{${lowerClassName}QueryForm.createTimeBegin}
             </if>
-            <if test="adminQueryDTO.createTimeEnd!=null">
-                and ${alias}.create_time &lt;= #{adminQueryDTO.createTimeEnd}
+            <if test="${lowerClassName}QueryForm.createTimeEnd!=null">
+                and ${alias}.create_time &lt;= #{${lowerClassName}QueryForm.createTimeEnd}
             </if>
-            <if test="adminQueryDTO.updateTimeBegin!=null">
-                and ${alias}.update_time &gt;= #{adminQueryDTO.updateTimeBegin}
+            <if test="${lowerClassName}QueryForm.updateTimeBegin!=null">
+                and ${alias}.update_time &gt;= #{${lowerClassName}QueryForm.updateTimeBegin}
             </if>
-            <if test="adminQueryDTO.updateTimeEnd!=null">
-                and ${alias}.update_time &lt;= #{adminQueryDTO.updateTimeEnd}
+            <if test="${lowerClassName}QueryForm.updateTimeEnd!=null">
+                and ${alias}.update_time &lt;= #{${lowerClassName}QueryForm.updateTimeEnd}
             </if>
         </where>
         order by ${alias}.update_time desc

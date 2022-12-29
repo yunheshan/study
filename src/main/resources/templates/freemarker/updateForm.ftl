@@ -1,4 +1,4 @@
-package com.bcs.study.module.${packageName}.domain.dto;
+package com.bcs.study.module.${packageName}.domain.form;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
@@ -10,7 +10,7 @@ import lombok.Data;
  * @Desc
  */
 @Data
-public class ${className}UpdateDTO extends ${className}SaveDTO{
+public class ${className}UpdateForm extends ${className}AddForm{
 
     /**
      * id

@@ -4,6 +4,9 @@ import com.bcs.study.module.other.generator.mapper.GeneratorMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Arrays;
 
@@ -34,11 +37,13 @@ public class TestWithoutSpring {
         System.out.println(canonicalName);
     }
     @Test
-    public void test3() {
+    public void test3() throws IOException {
 
-        String s = "java";
-        String substring = s.substring(0,1);
-        System.out.println(substring);
-
+//        String s = "java";
+//        String substring = s.substring(0,1);
+//        System.out.println(substring);
+//        new FileOutputStream()
+        File file = new File("" );
+        System.out.println(file.getCanonicalPath());
     }
 }

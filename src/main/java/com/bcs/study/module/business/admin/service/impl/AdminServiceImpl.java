@@ -5,12 +5,12 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.bcs.study.common.PageResultDTO;
 import com.bcs.study.common.ResponseDTO;
 import com.bcs.study.module.business.admin.dao.AdminDao;
-import com.bcs.study.module.business.admin.domain.AdminDO;
-import com.bcs.study.module.business.admin.domain.dto.AdminSaveDTO;
-import com.bcs.study.module.business.admin.domain.dto.AdminQueryDTO;
-import com.bcs.study.module.business.admin.domain.dto.AdminUpdateDTO;
+import com.bcs.study.module.business.admin.domain.entity.AdminEntity;
+import com.bcs.study.module.business.admin.domain.form.AdminAddForm;
+import com.bcs.study.module.business.admin.domain.form.AdminQueryForm;
+import com.bcs.study.module.business.admin.domain.form.AdminUpdateForm;
 import com.bcs.study.module.business.admin.domain.vo.AdminVO;
-import com.bcs.study.module.business.admin.service.IAdminService;
+import com.bcs.study.module.business.admin.service.AdminService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.bcs.study.util.PackedBeanUtils;
 import com.bcs.study.util.PageUtils;
@@ -25,33 +25,33 @@ import java.util.List;
  * @Version 1.0.0
  */
 @Service
-public class IAdminServiceImpl extends ServiceImpl<AdminDao, AdminDO> implements IAdminService {
+public class AdminServiceImpl extends ServiceImpl<AdminDao, AdminEntity> implements AdminService {
 
     @Override
-    public ResponseDTO<PageResultDTO<AdminVO>> listPageAdmins(AdminQueryDTO adminQueryDTO) {
-        Page<AdminVO> adminVOPage = PageUtils.convert2QueryPage(adminQueryDTO);
-        IPage<AdminVO> adminVOIPage = baseMapper.listPageAdmins(adminVOPage, adminQueryDTO);
+    public ResponseDTO<PageResultDTO<AdminVO>> pageQueryAdmin(AdminQueryForm adminQueryForm) {
+        Page<AdminVO> adminVOPage = PageUtils.convert2QueryPage(adminQueryForm);
+        IPage<AdminVO> adminVOIPage = baseMapper.pageQueryAdmin(adminVOPage, adminQueryForm);
         PageResultDTO<AdminVO> adminVOPageResultDTO = PageUtils.convert2PageResult(adminVOIPage);
         return ResponseDTO.successData(adminVOPageResultDTO);
     }
 
     @Override
-    public ResponseDTO<String> saveAdmin(AdminSaveDTO adminSaveDTO) {
-        AdminDO adminDO = PackedBeanUtils.copy2Class(adminSaveDTO, AdminDO.class);
+    public ResponseDTO<String> addAdmin(AdminAddForm adminAddForm) {
+        AdminEntity adminDO = PackedBeanUtils.copy2Class(adminAddForm, AdminEntity.class);
         baseMapper.insert(adminDO);
         return ResponseDTO.success();
     }
 
     @Override
-    public ResponseDTO<String> updateAdmin(AdminUpdateDTO adminUpdateDTO) {
-        AdminDO adminDO = PackedBeanUtils.copy2Class(adminUpdateDTO, AdminDO.class);
+    public ResponseDTO<String> updateAdmin(AdminUpdateForm adminUpdateForm) {
+        AdminEntity adminDO = PackedBeanUtils.copy2Class(adminUpdateForm, AdminEntity.class);
         baseMapper.updateById(adminDO);
         return ResponseDTO.success();
     }
 
     @Override
-    public ResponseDTO<String> removeBatchAdmin(List<Long> ids) {
-        baseMapper.removeBatchAdmin(ids);
+    public ResponseDTO<String> batchDeleteAdmin(List<Long> ids) {
+        baseMapper.batchDeleteAdmin(ids);
         return ResponseDTO.success();
     }
 
@@ -59,11 +59,5 @@ public class IAdminServiceImpl extends ServiceImpl<AdminDao, AdminDO> implements
     public ResponseDTO<AdminVO> getAdmin(Long id) {
         AdminVO adminVO = baseMapper.selectById(id);
         return ResponseDTO.successData(adminVO);
-    }
-
-    @Override
-    public ResponseDTO<String> deleteBatchAdmin(List<Long> ids) {
-        baseMapper.deleteBatchAdmin(ids);
-        return ResponseDTO.success();
     }
 }

@@ -2,7 +2,6 @@ package com.bcs.study.common;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.util.List;
@@ -14,7 +13,7 @@ import java.util.List;
  * @Desc
  */
 @Data
-public class PageParamDTO {
+public class PageParamForm {
 
     /**
      * 当前页码

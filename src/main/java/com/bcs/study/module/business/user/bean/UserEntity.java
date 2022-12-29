@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.math.BigDecimal;
 
-import com.bcs.study.common.bean.BaseDO;
+import com.bcs.study.common.bean.BaseEntity;
 import lombok.*;
 
 /**
@@ -19,7 +19,7 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 @TableName("t_user")
-public class UserDO extends BaseDO {
+public class UserEntity extends BaseEntity {
 
     /**
      * 用户名

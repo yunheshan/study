@@ -14,21 +14,14 @@
         ${alias}.`is_deleted`,
     </sql>
 
-    <update id="removeBatchAdmin">
+    <update id="batchDeleteAdmin">
         update t_admin ta set is_deleted = 1 where id in
         <foreach collection="list" open="(" close=")" separator="," item="id" >
             #{id}
         </foreach>
     </update>
 
-    <delete id="deleteBatchAdmin">
-        delete from t_admin ta where id in
-        <foreach collection="list" open="(" close=")" separator="," item="id" >
-            #{id}
-        </foreach>
-    </delete>
-
-    <select id="listPageAdmins" resultMap="AdminVO">
+    <select id="pageQueryAdmin" resultMap="AdminVO">
         select
         <trim suffixOverrides=",">
             <include refid="allColumns">
@@ -38,17 +31,17 @@
         from t_admin ta
         <where>
             ta.is_deleted = 0
-            <if test="adminQueryDTO.createTimeBegin!=null">
-                and ta.create_time &gt;= #{adminQueryDTO.createTimeBegin}
+            <if test="adminQueryForm.createTimeBegin!=null">
+                and ta.create_time &gt;= #{adminQueryForm.createTimeBegin}
             </if>
-            <if test="adminQueryDTO.createTimeEnd!=null">
-                and ta.create_time &lt;= #{adminQueryDTO.createTimeEnd}
+            <if test="adminQueryForm.createTimeEnd!=null">
+                and ta.create_time &lt;= #{adminQueryForm.createTimeEnd}
             </if>
-            <if test="adminQueryDTO.updateTimeBegin!=null">
-                and ta.update_time &gt;= #{adminQueryDTO.updateTimeBegin}
+            <if test="adminQueryForm.updateTimeBegin!=null">
+                and ta.update_time &gt;= #{adminQueryForm.updateTimeBegin}
             </if>
-            <if test="adminQueryDTO.updateTimeEnd!=null">
-                and ta.update_time &lt;= #{adminQueryDTO.updateTimeEnd}
+            <if test="adminQueryForm.updateTimeEnd!=null">
+                and ta.update_time &lt;= #{adminQueryForm.updateTimeEnd}
             </if>
         </where>
         order by ta.update_time desc

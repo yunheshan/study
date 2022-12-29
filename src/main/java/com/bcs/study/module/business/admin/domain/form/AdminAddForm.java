@@ -1,4 +1,4 @@
-package com.bcs.study.module.business.admin.domain.dto;
+package com.bcs.study.module.business.admin.domain.form;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
@@ -12,7 +12,7 @@ import java.math.BigDecimal;
  * @Desc
  */
 @Data
-public class AdminSaveDTO {
+public class AdminAddForm {
 
     /**
      * 用户名
