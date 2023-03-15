@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class StudyApplication {
 
     public static void main(String[] args) {
+        //测试提交
         SpringApplication.run(StudyApplication.class, args);
     }
 
