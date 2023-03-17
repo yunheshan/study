@@ -1,14 +1,9 @@
 package com.bcs.study;
 
-import com.bcs.study.module.other.generator.mapper.GeneratorMapper;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.math.BigDecimal;
-import java.util.Arrays;
 
 /**
  * @Author bcs
