@@ -1,0 +1,18 @@
+Ctrl+Shift+Esc  打开任务管理器
+Ctrl+shift+单击  以管理员身份运行
+
+Win + Tab       显示应用缩略图
+Win + D         显示桌面/回到上一次显示
+Win + E         打开我的电脑
+Win + W         全屏截图
+Win + Q         打开搜索
+Win + S         打开搜索
+Win + I         打开设置
+Win + M         最小化所有
+Win + V         打开剪切板
+Win+Shift+M     还原所有最小化
+Win+Shift+箭头   移动当前页面至扩展屏幕
+Win + P         多屏幕扩展设置
+
+Alt+enter       查看文件属性
+Alt+双击         查看文件属性

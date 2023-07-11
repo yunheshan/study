@@ -97,6 +97,19 @@
             <version>9.0.68</version>
         </dependency>
 
+        <!--hutool工具类-->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.8.20</version>
+        </dependency>
+        <!--导出依赖框架-->
+        <dependency>
+            <groupId>com.github.crab2died</groupId>
+            <artifactId>Excel4J</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+
     </dependencies>
     <repositories>
         <!-- 下载mybatis-plus SNAPSHOT 版本所需仓库 -->

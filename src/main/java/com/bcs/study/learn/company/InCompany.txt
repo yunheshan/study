@@ -1,0 +1,19 @@
+bigdecimal 加减乘除 https://blog.csdn.net/AttleeTao/article/details/103950423
+
+linux 文件切割  https://blog.csdn.net/qq_39939541/article/details/127935908
+      全局搜索  https://www.bufeishi.cn/59817.html
+
+热修复 https://blog.csdn.net/Mr_lyh/article/details/113343286
+
+导出/下载设置的文件名无效: 在响应头设置对应的参数 response.setHeader("Content-disposition", "attachment;filename=" + fileName + ";" + "filename*=utf-8''" + fileName);
+
+高性能字符串对比 https://www.bejson.com/othertools/finddif3/
+
+工具盒(图片base64) http://www.atoolbox.net/
+JSON格式化 https://www.json.cn/
+base64加解密 https://base64.us/
+
+判断当前环境: System.getProperty("os.name").toLowerCase() 可以判断是Windows还是Linux
+
+git branch --set-upstream-to origin/远程分支 本地分支
+

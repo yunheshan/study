@@ -1,0 +1,22 @@
+-h 更直观的大小显示 
+-r 反向排序
+
+lscpu 查看CPU信息
+
+truncate -s 0 清空文件
+
+df -Th 查看磁盘使用情况
+
+top 查看当前的进程信息
+
+find / -name 全局查找文件
+find / -type d -name 全局查找文件夹
+du -ah *|sort -hr 遍历查看当前文件夹下
+du -sh *|sort -hr 只查看当期文件夹下所有文件大小排序，不查子目录
+		|head 只展示排名靠前的几个
+
+grep '查找内容' 指定文件后查找文件内指定内容
+
+maven打包 -P 指定配置文件
+
+split -b xx /xx/a -d -a 4 b_ 分割文件a 每份最大为xx
