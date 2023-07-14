@@ -1,4 +1,4 @@
-DDL(数据定义语言)
+DDL(数据定义语言   老版本操作不可回滚 8.0已支持事务完整性)
 数据定义语言（Data Definition Language）简称DDL。是 SQL 语言集中负责数据结构定义与数据库对象定义的语言。
 DDL用来创建数据库中的各种对象，创建、删除、修改表的结构，比如表、视图、索引、同义词、聚簇等。其主要功能是定义数据库对象，核心指令为create、drop、alter。
 和DML相比，DML是修改数据库表中的数据，而 DDL 是修改数据中表的结构。
@@ -7,7 +7,7 @@ DQL(数据查询语言)
 数据查询语言（Data Query Language）简称DQL。是SQL语言中，负责进行数据查询而不会对数据本身进行修改的语句，这是最基本的SQL语句。
 DQL的核心指令为select。通常与关键字from、where、group by、having、order by等一起使用，组成查询语句。
 
-DML(数据操纵语言)
+DML(数据操纵语言   操作可以回滚)
 数据操纵语言（Data Manipulation Language）简称DML。过它可以实现对数据库的基本操作，对数据库其中的对象和数据运行访问工作的语言。
 DML的主要功能是访问数据，因此其语法都是以读写数据库为主。
 DML的核心指令为insert、update、delete。
@@ -30,4 +30,14 @@ AND OR 同时存在 AND优先级高于OR
 超过三个表禁止join join字段必须要有索引
 UNION 会去重 但是效率低于不去重的 UNION ALL,在明确无重复的情况下使用UNION ALL提高效率
 
+过滤条件可以写在where和having中时,where中效率更高
+
+各关键字执行顺序
+form --> on --> left/right --> where --> group by --> 聚合函数 --> having(在此处是否可以使用select中的别名,取决于是否开启了配置8默认开启) --> select --> distinct --> order by --> limit
+
+除了 group by和limit 其他地方都可以声明子查询
+
 contact_ws(x,x,x,x) 第一个为分割符
+
+
+truncate table 清空数据,不支持回滚  区别于 delete from 可以回滚
