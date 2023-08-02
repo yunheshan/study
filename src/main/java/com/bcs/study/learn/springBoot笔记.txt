@@ -1,0 +1,3 @@
+@Configuration注解
+    proxyBeanMethods属性 默认为true(Full模式) 保证所有注册在配置类的bean是单例模式
+                        false的情况下为Lite模式,启动更快
