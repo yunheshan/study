@@ -2,6 +2,7 @@ package com.bcs.study.interceptor;
 
 import com.alibaba.fastjson.JSONObject;
 import com.bcs.study.common.ResponseDTO;
+import com.bcs.study.util.IPUtils;
 import com.bcs.study.util.ValidUtils;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -26,8 +27,9 @@ public class LoginAuthenticationInterceptor implements HandlerInterceptor {
         //跨域设置
         this.crossDomainConfig(response);
         try {
-            String ipAddr = getIpAddr(request);
-            log.info("访问地址:" + ipAddr + ",请求的资源路径为:" + request.getRequestURL());
+            String ip = IPUtils.getIp(request);
+            String address = IPUtils.getAddress2(ip);
+            log.info("访问ip:" + ip + ",地区:" + address + ",请求的资源路径为:" + request.getRequestURL());
         } catch (Exception e) {
             e.printStackTrace();
         }
