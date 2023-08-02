@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
  * @Version 1.0
  * @Desc
  */
-@Target(ElementType.METHOD)
+@Target({ElementType.METHOD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface NoNeedLogin {
 }

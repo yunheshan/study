@@ -8,8 +8,8 @@ package com.bcs.study.util;
  */
 public class EleFee {
 
-    public static Integer[] totalEle = {7504,7643,7887,8135};
-    public static Integer[] topEle = {2417,2443,2537,2638};
+    public static Integer[] totalEle = {7504,7643,7887,8135,8362,8529};
+    public static Integer[] topEle = {2417,2443,2537,2638,2720,2826};
 
     public static void main(String[] args) {
         int lastTotal = totalEle[totalEle.length-2];
@@ -19,6 +19,6 @@ public class EleFee {
         int totalUse = nowTotal -lastTotal;
         int topUse = nowTotp -lastTop;
         double use = (double) topUse/totalUse;
-        System.out.println(105 * use);
+        System.out.println(108 * use);
     }
 }

@@ -1,14 +1,12 @@
 package com.bcs.study.learn.company;
 
-import freemarker.template.utility.DateUtil;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.lang.reflect.Field;
 import java.nio.charset.StandardCharsets;
-import java.util.Date;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
@@ -27,6 +25,7 @@ public class BatchDownload {
      * 本地文件路径
      */
     private static final String FILE_PATH = "D:\\test";
+
     /**
      * 批量下载文件
      *
@@ -34,7 +33,7 @@ public class BatchDownload {
      * @param request  request
      * @param response response
      */
-    public static  void batchDownloadFile(List list, HttpServletRequest request, HttpServletResponse response) {
+    public static void batchDownloadFile(List list, HttpServletRequest request, HttpServletResponse response) {
         //设置响应头信息
         // 此处的reset导致全局的跨域配置失效
         response.reset();

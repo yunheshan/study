@@ -22,6 +22,6 @@ public class LoginAuthenticationConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(loginAuthenticationInterceptor)
                 .addPathPatterns("/**")
-                .excludePathPatterns("/ex/");
+                .excludePathPatterns("/ex/", "/swagger-ui/", "/api-docs/");
     }
 }

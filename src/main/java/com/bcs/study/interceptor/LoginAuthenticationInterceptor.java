@@ -1,13 +1,11 @@
 package com.bcs.study.interceptor;
 
 import com.bcs.study.util.ValidUtils;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
-import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * @Author bcs
@@ -18,12 +16,12 @@ import javax.servlet.http.HttpServletResponse;
 @Component
 @Slf4j
 public class LoginAuthenticationInterceptor implements HandlerInterceptor {
-
     @Override
-    public boolean preHandle(@NotNull HttpServletRequest request, @NotNull HttpServletResponse response, @NotNull Object handler) throws Exception {
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         log.info("执行了登录验证拦截器");
+        log.info(request.getRequestURI());
         String loginToken = request.getHeader("loginToken");
-        if(ValidUtils.isEmpty(loginToken)){
+        if (ValidUtils.isEmpty(loginToken)) {
             return false;
         }
         return true;
