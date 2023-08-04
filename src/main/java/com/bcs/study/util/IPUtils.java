@@ -2,11 +2,11 @@ package com.bcs.study.util;
 
 import cn.hutool.http.HttpUtil;
 import jakarta.servlet.http.HttpServletRequest;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
-import org.springframework.http.HttpHeaders;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -15,8 +15,6 @@ import java.net.HttpURLConnection;
 import java.net.InetAddress;
 import java.net.URL;
 import java.net.UnknownHostException;
-import java.util.Enumeration;
-import java.util.Objects;
 
 /**
  * 获取IP地址和真实地址的工具类
@@ -26,6 +24,7 @@ import java.util.Objects;
  * @Version 1.0
  * @Desc
  */
+@Slf4j
 public class IPUtils {
 
     public static final String UNKNOWN = "unknown";
@@ -55,29 +54,37 @@ public class IPUtils {
      */
     public static String getIp(HttpServletRequest request) {
         String ip = request.getHeader(X_FORWARDED_FOR);
+        log.info("第1次获取到的ip地址为:" + ip);
         if (ip != null && ip.length() != 0 && !UNKNOWN.equalsIgnoreCase(ip)) {
             // 多次反向代理后会有多个ip值，第一个ip才是真实ip
             if (ip.contains(",")) {
-                ip = ip.split(",")[0];
+                String[] ips = ip.split(",");
+                ip = ips[ips.length-1];
             }
         }
         if (ip == null || ip.length() == 0 || UNKNOWN.equalsIgnoreCase(ip)) {
             ip = request.getHeader(PROXY_CLIENT_IP);
+            log.info("第2次获取到的ip地址为:" + ip);
         }
         if (ip == null || ip.length() == 0 || UNKNOWN.equalsIgnoreCase(ip)) {
             ip = request.getHeader(WL_PROXY_CLIENT_IP);
+            log.info("第3次获取到的ip地址为:" + ip);
         }
         if (ip == null || ip.length() == 0 || UNKNOWN.equalsIgnoreCase(ip)) {
             ip = request.getHeader(HTTP_CLIENT_IP);
+            log.info("第4次获取到的ip地址为:" + ip);
         }
         if (ip == null || ip.length() == 0 || UNKNOWN.equalsIgnoreCase(ip)) {
             ip = request.getHeader(HTTP_X_FORWARDED_FOR);
+            log.info("第5次获取到的ip地址为:" + ip);
         }
         if (ip == null || ip.length() == 0 || UNKNOWN.equalsIgnoreCase(ip)) {
             ip = request.getHeader(X_REAL_IP);
+            log.info("第6次获取到的ip地址为:" + ip);
         }
         if (ip == null || ip.length() == 0 || UNKNOWN.equalsIgnoreCase(ip)) {
             ip = request.getRemoteAddr();
+            log.info("第7次获取到的ip地址为:" + ip);
             if (LOCAL_IP_V4.equals(ip) || LOCAL_IP_V6.equals(ip)) {
                 // 根据网卡取本机配置的IP
                 InetAddress inet;
