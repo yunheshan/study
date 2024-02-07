@@ -26,21 +26,13 @@ public class ValidUtils {
             return true;
         }
         if (obj instanceof String) {
-            if (((String) obj).length() == 0) {
-                return true;
-            }
+            return ((String) obj).length() == 0;
         } else if (obj instanceof Collection) {
-            if (((Collection<?>) obj).size() == 0 || ((Collection<?>) obj).isEmpty()) {
-                return true;
-            }
+            return ((Collection<?>) obj).size() == 0;
         } else if (obj instanceof Map) {
-            if (((Map<?, ?>) obj).size() == 0) {
-                return true;
-            }
-        }else if(obj.getClass().isArray()){
-            if(((Object[])obj).length == 0){
-                return true;
-            }
+            return ((Map<?, ?>) obj).size() == 0;
+        } else if (obj.getClass().isArray()) {
+            return ((Object[]) obj).length == 0;
         }
         return false;
     }
